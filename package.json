@@ -1,0 +1,24 @@
+{
+  "name": "learning_package",
+  "version": "1.0.0",
+  "description": "learning how to make node application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "new_app.js",
+    "start_app": "app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashwanisinghel/Node.git"
+  },
+  "author": "Ashwani Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashwanisinghel/Node/issues"
+  },
+  "homepage": "https://github.com/ashwanisinghel/Node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
