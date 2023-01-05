@@ -1,12 +1,11 @@
 {
-  "name": "learning_package",
+  "name": "7.-node",
   "version": "1.0.0",
-  "description": "learning how to make node application",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "new_app.js",
-    "start_app": "app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,7 @@
     "url": "https://github.com/ashwanisinghel/Node/issues"
   },
   "homepage": "https://github.com/ashwanisinghel/Node#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.20"
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
