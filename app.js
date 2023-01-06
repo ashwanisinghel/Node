@@ -1,20 +1,17 @@
 const express=require('express');
-const bodyParser=require('body-parser')
+const adminRoutes=require('./Routes/admin');
+const shopRoutes=require('./Routes/shop')
+const bodyParser=require('body-parser');
 
 const app=express();
 
 app.use(bodyParser.urlencoded({extended:false}))
-app.use('/',(req,res,next)=>{
-    console.log('this will always come')
-    next();
-})
 
-app.use('/product',(req,res,next)=>{
-    res.send("<form action='add-product' method='post'><input type='text', name='product'><input type='text' name='size'><button type='submit'>Add product</button></form>")
-})
-app.use('/add-product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/product')
+app.use('/admin',adminRoutes);
+app.use(shopRoutes);
+
+app.use((req,res,next)=>{
+    res.status(404).send('<h1>---Error Page</h1>');
 })
 
 app.listen(4000);
