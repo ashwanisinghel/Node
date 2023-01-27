@@ -1,9 +1,9 @@
 const mysql= require('mysql2')
 
-const pool= mysql.createPool({
+const pool= mysql.createConnection({
     host:'localhost',
     user:'root',
-    user:'node_practice',
+    database:'node_practice',
     password:'153624'
 })
 
