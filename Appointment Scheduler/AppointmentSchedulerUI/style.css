@@ -1,0 +1,22 @@
+.formDiv{
+    display: flex;
+    margin: 15px auto auto;
+    width: 30vw;
+    flex-direction: column;
+}
+.label{
+    /* font-weight: bold; */
+    margin-bottom: 4px;
+}
+
+input{
+    padding: 5px;
+}
+
+
+#btn{
+    width: 15vw;
+    padding: 7px;
+    font-weight: bold;
+    margin: 10px auto auto;
+}
