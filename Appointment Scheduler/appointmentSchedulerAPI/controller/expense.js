@@ -2,7 +2,7 @@ const Expense= require('../model/expenseModel.js');
 
 exports.postExpense=async(req,res,next)=>{
     const data= req.body;
-    console.log(data);
+    // console.log(data);
     const amount= data.amount;
     const type= data.type;
     const detail= data.detail;
