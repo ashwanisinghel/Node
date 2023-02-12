@@ -7,8 +7,6 @@ const bodyParser = require('body-parser');
 
 const User= require('./models/user');
 const Product= require('./models/product');
-const Cart= require('./models/cart');
-const CartItem= require('./models/cart-item')
 
 const errorController = require('./controllers/error');
 
@@ -25,6 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req,res,next)=>{
     User.findByPk(1).then(user=>{
         req.user=user;
+        console.log(req.user,'Ye user hai')
         next();
     }).catch(err=>{
         console.log(err)
@@ -38,12 +37,7 @@ app.use(errorController.get404);
 
 Product.belongsTo(User,{constraints:true, onDelete:'CASCADE'})
 User.hasMany(Product)
-User.hasOne(Cart)
-Cart.belongsTo(User)
-Cart.belongsToMany(Product,{through:CartItem})
-Product.belongsToMany(Cart,{through:CartItem})
-
-sequelize.sync({force:true}).then((res)=>{
+sequelize.sync().then((res)=>{
 
     return User.findByPk(1)
     // console.log(res);
@@ -55,12 +49,8 @@ sequelize.sync({force:true}).then((res)=>{
     }
     return user
 }).then((user)=>{
-   return user.createCart()
-    // console.log(user);
-    // app.listen(3000);
-}).then((cart)=>{
-    console.log(cart);
-    app.listen(3000)
+    console.log(user);
+    app.listen(3000);
 }).catch((err)=>{
     console.log(err)
 })
