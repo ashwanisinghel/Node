@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="form">
-        <form action="" class="formEl">
+        <form action="" class="formEl" id="signUpForm">
             <div class="formDiv">
                 <h2 class="center gray">Sign Up</h2>
             </div>
@@ -28,10 +28,16 @@
             <div class="formDiv">
                 <a href="signIn.html" class="anchor" id="signInAnchor">Existing User ?</a>
             </div>
+            <div class="formDiv">
+                <p id="error"></p>
+            </div>
             <div class="center formBtn">
                 <button type="submit" class="btn">Sign Up</button>
             </div>
+            
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
