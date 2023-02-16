@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Rubik&display=swap');
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+}
+.center{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin:  auto auto;
+}
+
+.formDiv{
+    display: flex;
+    margin: 15px auto auto;
+    width: 30vw;
+    flex-direction: column;
+}
+
+.btn{
+    width: 100px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background-color: #0574bb;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 7px  rgb(97 , 128 , 168);
+}
+
+.formIp{
+    padding: 7px;
+    margin-top: 5px;
+}
+.exenseList{
+    border: 1px solid black;
+    padding: 15px;
+    height: 35vh;
+    min-width: 27vw;
+    border-radius: 10px;
+    overflow: hidden scroll;
+}
+.expenses{
+    width: 27vw;
+    border: 1px solid rgb(255, 90, 90);
+    padding: 10px;
+    border-radius: 5px;
+    list-style: none;
+    margin-bottom: 2px;
+}
+.edit_delete{
+    float: right;
+}
+
+.editLi, .deleteLi{
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+.editLi{
+    background-color: #0574bb;
+    color: white;
+}
+.deleteLi{
+    background-color: red;
+    color: white;
+}
+
+.editLi:hover,.deleteLi:hover{
+    cursor: pointer;
+}
+

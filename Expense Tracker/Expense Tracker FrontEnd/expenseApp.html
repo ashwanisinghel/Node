@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="expenseApp.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="formContainer center">
+        <form action="" class="formEl">
+            <div class="formDiv">
+                <label for="amount">Amount</label>
+                <input type="text" id="amount" class="formIp">
+            </div>
+            <div class="formDiv">
+                <label for="type">Expense Type</label>
+                <select name="" id="type" class="formIp">
+                    <option value="travel">Travel</option>
+                    <option value="food">Food</option>
+                    <option value="accomodation">Accomodation</option>
+                </select>
+            </div>
+            <div class="formDiv">
+                <label for="detail">Details</label>
+                <input type="text" id="detail" class="formIp">
+            </div>
+            <div class="formDiv">
+                <input type="submit" value="Add Expense" class="btn center">
+            </div>
+        </form>
+
+        <div>
+            <ul class="exenseList">
+                <!-- <li class="expenses" id="">
+                    Element
+                    <span class="edit_delete">
+                        <input type="button" class="editLi" value="Edit">
+                        <input type="button" class="deleteLi" value="Delete">
+                    </span>
+                </li>
+                <li class="expenses" id="">
+                    Element
+                    <span class="edit_delete">
+                        <input type="button" class="editLi" value="Edit">
+                        <input type="button" class="deleteLi" value="Delete">
+                    </span>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="expenseapp.js"></script>
+</body>
+</html>
