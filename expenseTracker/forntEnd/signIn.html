@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sign.css">
+    <link rel="stylesheet" href="signInCss.css">
     <title>Expense Tracker Sign In</title>
 </head>
 <body>
@@ -24,11 +24,15 @@
             <div class="formDiv">
                 <a href="signUp.html" class="anchor" id="signInAnchor">New user ?</a>
             </div>
+            <div class="formDiv">
+                <p id="error"></p>
+            </div>
             <div class="center formBtn">
                 <button type="submit" class="btn">Login</button>
             </div>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="signInScript.js"></script>
 </body>
 </html>
