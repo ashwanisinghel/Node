@@ -68,6 +68,7 @@ const amount= document.querySelector('#amount');
 const type= document.querySelector('#type');
 const detail= document.querySelector('#detail');
 const expenseList= document.querySelector('.exenseList');
+const rzpbtn= document.querySelector('#rzpbtn');
 
 const token= localStorage.getItem('userInfo');
 
@@ -76,6 +77,7 @@ const intilistioners= ()=>{
     document.addEventListener('DOMContentLoaded',fetchAllExp);
     formEl.addEventListener('submit',onFormSubmit);
     expenseList.addEventListener('click',onExpenseClick)
+    rzpbtn.addEventListener('click',onRzpBtnClick)
 }
 
 let onFormSubmit= async(e) =>{
@@ -122,4 +124,33 @@ let onExpenseClick=async(e)=>{
         
     }
 }
+
+let onRzpBtnClick= async(e)=>{
+    try {
+        const response=await axios.get('http://localhost:3000/purchase/premium',{headers:{"Authorization":token}})
+        console.log(response)
+        var options={
+            "key":response.data.key_id,
+            "order_id":response.data.order.id,
+            "handler": async function(res){
+                await axios.post('http://localhost:3000/purchase/premium',{
+                    order_id:options.order_id,
+                    payment_id:res.razorpay_payment_id
+                },{headers:{"Authorization":token}})
+                alert('You are Premium now')
+            }
+        }
+        const rzp1= new Razorpay(options);
+        rzp1.open()
+        e.preventDefault()
+        rzp1.on('payment.failed',function(res){
+            console.log(res);
+            alert('something went wrong')
+        })
+    } catch (error) {
+        console.log(error)
+    }
+   
+}
+    
 intilistioners()

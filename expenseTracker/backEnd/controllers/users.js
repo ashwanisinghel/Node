@@ -43,7 +43,7 @@ exports.signInPostUser= async(req,res,next)=>{
         }else{
             res.send("user does'nt exist")
         }
-        
+                
     } catch (error) {
         console.log(error)
     }

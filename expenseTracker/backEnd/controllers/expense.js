@@ -30,8 +30,8 @@ exports.getExpense=async(req,res,next)=>{
     
 }
 exports.getExpenses=async(req,res,next)=>{
-    const userId=jwt.decode(req.headers.authorization).userId
     try{
+        const userId=jwt.decode(req.headers.authorization).userId
         const data= await Expense.findAll({where:{userId:userId}})
         res.send(data)
     }catch(err){

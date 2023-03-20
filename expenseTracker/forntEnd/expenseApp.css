@@ -36,6 +36,9 @@ body{
     border-radius: 5px;
     box-shadow: 2px 2px 7px  rgb(97 , 128 , 168);
 }
+.btn:hover{
+    cursor: pointer;
+}
 
 .formIp{
     padding: 7px;
