@@ -61,6 +61,7 @@ class Server{
             console.log(err)
         }
     }
+
 }
 
 const formEl= document.querySelector('.formEl');
@@ -69,6 +70,7 @@ const type= document.querySelector('#type');
 const detail= document.querySelector('#detail');
 const expenseList= document.querySelector('.exenseList');
 const rzpbtn= document.querySelector('#rzpbtn');
+const leaderboard= document.querySelector('.leaderboard');
 
 const token= localStorage.getItem('userInfo');
 
@@ -100,14 +102,41 @@ let onFormSubmit= async(e) =>{
     
 }
 
+let premiumUser =()=>{
+    const premiumDiv= document.createElement('div');
+    premiumDiv.classList='formDiv'
+    premiumDiv.innerHTML=`<h3 id="premiumFlag">Premium User !🙌</h3>`
+    formEl.appendChild(premiumDiv);
+    rzpbtn.style.display='none'    
+}
+let premiumFeature = async()=>{
+    const data= await axios.get('http://localhost:3000/expense/getExpensesGroupby',{headers: {
+        'Authorization': token,
+    }})
+    let count=0;
+    data.data.data[0].forEach((el)=>{
+        const li= document.createElement('li');
+        li.classList='listUsers';
+        li.style.listStyle='none';
+        count++;
+        li.innerHTML=`${count}.  ${el.name} : ${el.amount_sum}`;
+        leaderboard.appendChild(li)
+    })
+}
+
+
 let fetchAllExp= async()=>{
     try{
         // console.log(token)
         let data=await Server.fetchAll(token)
         // console.log(data)
-        data.forEach(element => {
+        data.resData.data.forEach(element => {
             Display.addElement(element);
         });
+        if(data.resData.isPremium.isPremium === true){
+            premiumUser();
+            premiumFeature();
+        }
     }catch(err){
         console.log(err)
     }
@@ -138,6 +167,7 @@ let onRzpBtnClick= async(e)=>{
                     payment_id:res.razorpay_payment_id
                 },{headers:{"Authorization":token}})
                 alert('You are Premium now')
+                location.reload();
             }
         }
         const rzp1= new Razorpay(options);
@@ -150,7 +180,9 @@ let onRzpBtnClick= async(e)=>{
     } catch (error) {
         console.log(error)
     }
-   
+    
+    
 }
+
     
 intilistioners()

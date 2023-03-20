@@ -35,7 +35,7 @@ exports.signInPostUser= async(req,res,next)=>{
         if(data[0]!=undefined){
             const matchFlag= await bcrypt.compare(password,data[0].password)
             if (matchFlag){
-                const token=webtoken(data[0].id,data[0].name)
+                const token=webtoken(data[0].id,data[0].name,data[0])
                 res.status(200).json({'flag':matchFlag,'token':token})
             }else{
                 res.status(200).json(matchFlag)
